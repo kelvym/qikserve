@@ -31,7 +31,7 @@ export const MenuFilter = ({ data, selectedById }: FilterProps) => {
           onClick={() => changeFilterType(item.name)}
           key={item.id}
           className={cn(
-            'w-[104px] flex flex-col items-center cursor-pointer pb-4',
+            'border-b-2 border-white w-[104px] flex flex-col items-center cursor-pointer pb-4',
             {
               'border-b-2 border-[theme(colors.primary.DEFAULT)]':
                 item.name.toLocaleLowerCase() ===

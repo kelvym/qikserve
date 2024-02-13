@@ -19,18 +19,17 @@ const config = {
     },
     extend: {
       colors: {
+        main: 'hsl(0, 0%, 7%)',
+        secondary: 'hsl(0, 0%, 28%)',
+        inactive: 'hsl(0, 0%, 37%)',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
-        background: 'hsl(var(--background))',
+        background: 'hsl(210, 17%, 98%)',
         foreground: 'hsl(var(--foreground))',
         primary: {
           DEFAULT: 'var(--primary)',
           foreground: 'hsl(var(--primary-foreground))',
-        },
-        secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
         },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',

@@ -1,15 +1,17 @@
 'use client'
 
-import Image from 'next/image'
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 import { useSearchParams } from 'next/navigation'
 import { Section } from '.'
 import { MenuItem } from './menu-item'
+import { MenuItemDetails } from '../item-details'
+import { useState } from 'react'
 
 type ListProps = {
   data: Section[]
@@ -32,6 +34,7 @@ const isValidFilterType = ({
 }
 
 export const MenuList = ({ data }: ListProps) => {
+  const [dialogOpened, setDialogOpened] = useState(0)
   const ids = data.map((item) => `item-${item.id}`)
   const sections = data.map((item) => item.name.toLocaleLowerCase())
 
@@ -59,11 +62,26 @@ export const MenuList = ({ data }: ListProps) => {
             <h2 className="font-medium text-2xl">{section.name}</h2>
           </AccordionTrigger>
           <AccordionContent>
-            <ul>
+            <div>
               {section.items.map((item) => (
-                <MenuItem key={item.id} {...item} />
+                <div key={item.id}>
+                  <div onClick={() => setDialogOpened(item.id)}>
+                    <MenuItem {...item} />
+                  </div>
+
+                  <Dialog
+                    open={dialogOpened === item.id}
+                    onOpenChange={(isOpen) => {
+                      if (isOpen === false) setDialogOpened(0)
+                    }}
+                  >
+                    <DialogContent className="h-full sm:h-[calc(100vh-200px)]">
+                      <MenuItemDetails data={item} />
+                    </DialogContent>
+                  </Dialog>
+                </div>
               ))}
-            </ul>
+            </div>
           </AccordionContent>
         </AccordionItem>
       ))}

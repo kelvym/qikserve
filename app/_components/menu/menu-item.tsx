@@ -3,13 +3,9 @@
 import Image from 'next/image'
 import { Item2 } from '.'
 
-const openModal = () => {
-  console.log('Open modal')
-}
-
 export const MenuItem = ({ name, description, price, images }: Item2) => {
   return (
-    <li onClick={() => openModal()} className="flex gap-4 py-4 cursor-pointer">
+    <div className="flex gap-4 py-4 cursor-pointer text-left">
       <div className="grow">
         <h3 className="font-medium text-base">{name}</h3>
         <p className="font-light text-base leading-[18.75px] line-clamp-2 ">
@@ -26,6 +22,6 @@ export const MenuItem = ({ name, description, price, images }: Item2) => {
           className="w-32 h-[85px]"
         />
       )}
-    </li>
+    </div>
   )
 }

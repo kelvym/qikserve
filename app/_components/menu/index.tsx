@@ -38,7 +38,7 @@ export interface Item2 {
   modifiers?: Modifier[]
 }
 
-interface Modifier {
+export interface Modifier {
   id: number
   name: string
   minChoices: number
@@ -68,18 +68,11 @@ export const Menu = () => {
   const selectedById = 242403
 
   return (
-    <Content className="lg:w-[600px]">
-      <Suspense
-        fallback={
-          <>
-            <Skeleton className="w-[74px] h-[74px] rounded-full" />
-            <Skeleton className="w-[74px] h-[20px] rounded-full" />
-          </>
-        }
-      >
-        <MenuFilter data={dataMenu} selectedById={selectedById} />
-      </Suspense>
+    <>
+      {/* TODO skeleton*/}
+      <MenuFilter data={dataMenu} selectedById={selectedById} />
       <MenuList data={dataMenu} />
-    </Content>
+      {/* --- */}
+    </>
   )
 }

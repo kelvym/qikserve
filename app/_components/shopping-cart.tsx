@@ -1,7 +1,7 @@
 import { Content } from './content'
 import Image from 'next/image'
 
-export const ShoppingCart = () => {
+export const ShoppingCart = ({ close }: { close: () => void }) => {
   const cart = [
     {
       id: 1,
@@ -17,10 +17,20 @@ export const ShoppingCart = () => {
     },
   ]
   return (
-    <Content className="grow hidden lg:block">
-      <h2 className="font-medium text-2xl p-[22px] bg-[#F8F9FA] text-[#464646]">
-        Carrinho
-      </h2>
+    <>
+      <div className="flex lg:block p-[22px] items-center bg-background">
+        <h2 className="font-medium text-2xl text-[#464646] grow text-center lg:text-left">
+          Carrinho
+        </h2>
+        <Image
+          src="/x-icon.svg"
+          alt="Fechar"
+          width={14}
+          height={14}
+          onClick={close}
+          className="lg:hidden cursor-pointer h-[14px] w-[14px]"
+        />
+      </div>
 
       {cart?.map((item) => (
         <div key={item.id} className="p-4">
@@ -40,7 +50,7 @@ export const ShoppingCart = () => {
               alt="Remover"
               width={20}
               height={20}
-              className="cursor-pointer"
+              className="cursor-pointer h-[20px] w-[20px]"
             />
             <span className="w-[30px] text-center">{item.quantity}</span>
             <Image
@@ -48,21 +58,21 @@ export const ShoppingCart = () => {
               alt="Remover"
               width={20}
               height={20}
-              className="cursor-pointer"
+              className="cursor-pointer h-[20px] w-[20px]"
             />
           </div>
         </div>
       ))}
       {/* TODO total*/}
-      <div className="px-4 pt-[22px] pb-[19px] flex justify-between bg-[#F8F9FA] border-[#EEEEEE] border-t-[1px]">
+      <div className="px-4 pt-[22px] pb-[19px] flex justify-between bg-background border-[#EEEEEE] border-t-[1px]">
         <span className="font-normal text-base">Sub Total</span>
         <span className="font-medium text-base">22.50</span>
       </div>
-      <div className="px-4 pt-[22px] pb-[19px] flex justify-between bg-[#F8F9FA] border-[#EEEEEE] border-t-[1px]">
+      <div className="px-4 pt-[22px] pb-[19px] flex justify-between bg-background border-[#EEEEEE] border-t-[1px]">
         <span className="font-normal text-2xl">Total:</span>
         <span className="font-medium text-2xl">22.50</span>
       </div>
       {/* --- */}
-    </Content>
+    </>
   )
 }

@@ -9,5 +9,13 @@ const nextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'https://cdn-dev.preoday.com/challenge/:path*',
+      },
+    ]
+  },
 }
 export default nextConfig
