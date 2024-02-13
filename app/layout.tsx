@@ -4,9 +4,8 @@ import './globals.css'
 import { cn } from '@/lib/utils'
 
 const roboto = Roboto({
-  weight: '500',
+  weight: ['300', '400', '500'],
   subsets: ['latin'],
-  display: 'swap',
 })
 
 export const metadata: Metadata = {
