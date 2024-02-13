@@ -16,7 +16,12 @@ export const Filter = ({ data, selectedById }: FilterProps) => {
   const urlFilterType = searchParams.get('filter-type')
 
   const changeFilterType = (filterType: string) => {
-    router.push('?filter-type=' + filterType)
+    let urlNewParams = '?'
+    if (urlFilterType?.toLocaleLowerCase() !== filterType.toLocaleLowerCase()) {
+      urlNewParams = '?filter-type=' + filterType
+    }
+
+    router.push(urlNewParams)
   }
 
   return (
@@ -47,7 +52,7 @@ export const Filter = ({ data, selectedById }: FilterProps) => {
           </div>
           <span
             className={cn('block text-center leading-[18.75px] text-base font-normal', {
-              'font-semibold': item.name.toLocaleLowerCase() === urlFilterType?.toLocaleLowerCase(),
+              'font-medium': item.name.toLocaleLowerCase() === urlFilterType?.toLocaleLowerCase(),
             })}
           >
             {item.name}

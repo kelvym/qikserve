@@ -39,16 +39,16 @@ export const List = ({ data }: ListProps) => {
       {dataFiltered?.map((section) => (
         <AccordionItem value={`item-${section.id}`} key={section.id} className="p-4">
           <AccordionTrigger>
-            <h2 className="font-semibold text-2xl">{section.name}</h2>
+            <h2 className="font-medium text-2xl">{section.name}</h2>
           </AccordionTrigger>
           <AccordionContent>
             <ul>
               {section.items.map((item) => (
                 <li key={item.id} className="flex gap-4 py-4">
                   <div className="grow">
-                    <h3 className="font-semibold text-base">{item.name}</h3>
+                    <h3 className="font-medium text-base">{item.name}</h3>
                     <p className="font-light text-base leading-[18.75px] line-clamp-2 ">{item.description}</p>
-                    <span className="font-semibold text-base">{item.price}</span>
+                    <span className="font-medium text-base">{item.price}</span>
                   </div>
                   {item.images && (
                     <Image

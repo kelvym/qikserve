@@ -68,7 +68,7 @@ export const Menu = () => {
   const selectedById = 242403
 
   return (
-    <Content className="w-[600px]">
+    <Content className="w-[600px] items-start">
       <Suspense
         fallback={
           <>
