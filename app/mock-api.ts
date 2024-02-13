@@ -18,7 +18,8 @@ export const VENUE = {
   webSettings: {
     id: 5854,
     venueId: 7602,
-    bannerImage: 'https://preodemo.gumlet.io/usr/venue/7602/web/646fbf3abf9d0.png',
+    bannerImage:
+      'https://preodemo.gumlet.io/usr/venue/7602/web/646fbf3abf9d0.png',
     backgroundColour: '#ffffff',
     primaryColour: '#4f372f',
     primaryColourHover: '#4f372f',
@@ -44,7 +45,8 @@ export const MENU = {
       images: [
         {
           id: 1550,
-          image: 'https://preodemo.gumlet.io/usr/venue/7602/section/646fbe4c64a6f.png',
+          image:
+            'https://preodemo.gumlet.io/usr/venue/7602/section/646fbe4c64a6f.png',
         },
       ],
       items: [
@@ -62,7 +64,8 @@ export const MENU = {
           images: [
             {
               id: 108305,
-              image: 'https://preodemo.gumlet.io/usr/venue/7602/menuItem/646fbdc8cecca.png',
+              image:
+                'https://preodemo.gumlet.io/usr/venue/7602/menuItem/646fbdc8cecca.png',
             },
           ],
           available: true,
@@ -122,7 +125,8 @@ export const MENU = {
           images: [
             {
               id: 108307,
-              image: 'https://preodemo.gumlet.io/usr/venue/7602/menuItem/646fbe01b3373.png',
+              image:
+                'https://preodemo.gumlet.io/usr/venue/7602/menuItem/646fbe01b3373.png',
             },
           ],
           available: true,
@@ -141,7 +145,8 @@ export const MENU = {
           images: [
             {
               id: 108309,
-              image: 'https://preodemo.gumlet.io/usr/venue/7602/menuItem/646fbe292998e.png',
+              image:
+                'https://preodemo.gumlet.io/usr/venue/7602/menuItem/646fbe292998e.png',
             },
           ],
           available: true,
@@ -156,7 +161,8 @@ export const MENU = {
       images: [
         {
           id: 1551,
-          image: 'https://preodemo.gumlet.io/usr/venue/7602/section/646fbe5dc1bf3.png',
+          image:
+            'https://preodemo.gumlet.io/usr/venue/7602/section/646fbe5dc1bf3.png',
         },
       ],
       items: [
@@ -210,7 +216,8 @@ export const MENU = {
       images: [
         {
           id: 1552,
-          image: 'https://preodemo.gumlet.io/usr/venue/7602/section/646fbe93cb615.png',
+          image:
+            'https://preodemo.gumlet.io/usr/venue/7602/section/646fbe93cb615.png',
         },
       ],
       items: [
@@ -225,7 +232,8 @@ export const MENU = {
           images: [
             {
               id: 108310,
-              image: 'https://preodemo.gumlet.io/usr/venue/7602/menuItem/646fbf0bec8fe.png',
+              image:
+                'https://preodemo.gumlet.io/usr/venue/7602/menuItem/646fbf0bec8fe.png',
             },
           ],
           available: true,

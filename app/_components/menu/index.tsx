@@ -1,5 +1,5 @@
-import { Filter } from './filter'
-import { List } from './list'
+import { MenuFilter } from './menu-filter'
+import { MenuList } from './menu-list'
 import { MENU } from '../../mock-api'
 import { Content } from '../content'
 import { Skeleton } from '@/components/ui/skeleton'
@@ -23,7 +23,7 @@ export interface Section {
   items: Item2[]
 }
 
-interface Item2 {
+export interface Item2 {
   id: number
   name: string
   description?: string
@@ -68,7 +68,7 @@ export const Menu = () => {
   const selectedById = 242403
 
   return (
-    <Content className="w-[600px] items-start">
+    <Content className="lg:w-[600px]">
       <Suspense
         fallback={
           <>
@@ -77,9 +77,9 @@ export const Menu = () => {
           </>
         }
       >
-        <Filter data={dataMenu} selectedById={selectedById} />
+        <MenuFilter data={dataMenu} selectedById={selectedById} />
       </Suspense>
-      <List data={dataMenu} />
+      <MenuList data={dataMenu} />
     </Content>
   )
 }

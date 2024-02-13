@@ -9,15 +9,18 @@ type ItemProps = {
   url: string
 }
 
-export const Item = ({ text, url }: ItemProps) => {
+export const NavbarItem = ({ text, url }: ItemProps) => {
   const pathname = usePathname()
 
   return (
     <li>
       <Link
-        className={cn('flex w-[232px] text-center h-full justify-center items-center text-white', {
-          'border-b-[5px] border-white border-opacity-100': pathname === url,
-        })}
+        className={cn(
+          'flex w-[232px] text-center h-full justify-center items-center text-white',
+          {
+            'border-b-[5px] border-white border-opacity-100': pathname === url,
+          }
+        )}
         href={url}
       >
         {text}

@@ -20,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn('bg-[#eee] md:bg-[#eee]', roboto.className)}>{children}</body>
+      <body className={cn('bg-[#fff] lg:bg-[#eee]', roboto.className)}>
+        {children}
+      </body>
     </html>
   )
 }

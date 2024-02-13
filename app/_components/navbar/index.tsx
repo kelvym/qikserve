@@ -1,5 +1,4 @@
-import { VENUE } from '@/app/mock-api'
-import { Item } from './item'
+import { NavbarItem } from './navbar-item'
 import Image from 'next/image'
 
 export const Navbar = () => {
@@ -22,11 +21,13 @@ export const Navbar = () => {
     <nav className="bg-[theme(colors.primary.DEFAULT)] w-full h-[64px] lg:h-[52px]">
       <ul className={'justify-center hidden lg:flex h-full'}>
         {items.map((item) => (
-          <Item key={item.url} text={item.text} url={item.url} />
+          <NavbarItem key={item.url} text={item.text} url={item.url} />
         ))}
       </ul>
       <div className="lg:hidden flex p-4 b">
-        <span className="text-white grow flex justify-center items-center text-lg">Menu</span>
+        <span className="text-white grow flex justify-center items-center text-lg">
+          Menu
+        </span>
         <Image
           alt="Menu"
           src="/menu-icon.svg"
