@@ -35,6 +35,34 @@ const isValidFilterType = ({
   }
 }
 
+const filterDataBySearch = ({
+  originalData,
+  searchText,
+}: {
+  originalData: MenuDataSection[]
+  searchText: string
+}) => {
+  if (!searchText) return originalData
+
+  return originalData.map((section) => {
+    const newItems = section.items.filter((item) => {
+      const nameLowerCase = item.name.toLocaleLowerCase()
+      const descriptionLowerCase = item.description?.toLocaleLowerCase() || ''
+      const searchTextLowerCase = searchText.toLocaleLowerCase()
+
+      return (
+        nameLowerCase.indexOf(searchTextLowerCase) !== -1 ||
+        descriptionLowerCase.indexOf(searchTextLowerCase) !== -1
+      )
+    })
+
+    return {
+      ...section,
+      items: newItems,
+    }
+  })
+}
+
 export const ProductsList = ({ data }: ListProps) => {
   const removeTemporaryItemModifiers = useShoppingCartStore(
     (state) => state.removeTemporaryItemModifiers
@@ -45,11 +73,12 @@ export const ProductsList = ({ data }: ListProps) => {
 
   const searchParams = useSearchParams()
   const urlFilterType = searchParams.get('filter-type') || ''
+  const urlSearch = searchParams.get('search') || ''
 
-  let dataFiltered = data
+  let dataFilteredBySection = data
 
   if (isValidFilterType({ urlFilterType, options: sections })) {
-    dataFiltered = dataFiltered.filter(
+    dataFilteredBySection = dataFilteredBySection.filter(
       (section) =>
         section.name.toLocaleLowerCase() === urlFilterType.toLocaleLowerCase()
     )
@@ -62,7 +91,10 @@ export const ProductsList = ({ data }: ListProps) => {
 
   return (
     <Accordion type="multiple" defaultValue={ids}>
-      {dataFiltered?.map((section) => (
+      {filterDataBySearch({
+        originalData: dataFilteredBySection,
+        searchText: urlSearch,
+      })?.map((section) => (
         <AccordionItem
           value={`item-${section.id}`}
           key={section.id}

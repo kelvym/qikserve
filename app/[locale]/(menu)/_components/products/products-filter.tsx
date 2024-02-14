@@ -11,12 +11,11 @@ export const ProductsFilter = ({ data }: { data: MenuDataSection[] }) => {
   const urlFilterType = searchParams.get('filter-type')
 
   const changeFilterType = (filterType: string) => {
-    let urlNewParams = '?'
-    if (urlFilterType?.toLocaleLowerCase() !== filterType.toLocaleLowerCase()) {
-      urlNewParams = '?filter-type=' + filterType
-    }
+    const params = new URLSearchParams(searchParams.toString())
 
-    router.push(urlNewParams)
+    params.set('filter-type', filterType)
+
+    router.push('?' + params.toString())
   }
 
   return (
