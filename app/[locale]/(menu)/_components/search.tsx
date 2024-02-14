@@ -26,6 +26,7 @@ export const Search = () => {
 
   useEffect(() => {
     setInputValue(urlSearch)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
