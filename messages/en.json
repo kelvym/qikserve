@@ -1,13 +1,13 @@
 {
-    "Menu": {
-      "navbar": {
-        "menu": "MENU",
-        "login": "LOGIN",
-        "contact": "CONTACT"
-      },
-      "search-placeholder": "Search menu items",
-      "shopping-cart": "Basket",
-      "subtotal": "Subtotal",
-      "total": "Total"
-    }
+  "Menu": {
+    "navbar": {
+      "menu": "MENU",
+      "login": "LOGIN",
+      "contact": "CONTACT"
+    },
+    "search-placeholder": "Search menu items",
+    "shopping-cart": "Basket",
+    "subtotal": "Subtotal",
+    "total": "Total"
   }
+}
