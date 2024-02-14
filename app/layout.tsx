@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
-import { QueryClient } from '@tanstack/react-query'
 import './globals.css'
 import { cn } from '@/lib/utils'
 import Providers from './providers'

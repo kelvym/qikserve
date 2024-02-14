@@ -6,15 +6,17 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
+import { Dialog, DialogContent } from '@/components/ui/dialog'
 import { useSearchParams } from 'next/navigation'
-import { Section } from '.'
-import { MenuItem } from './menu-item'
-import { MenuItemDetails } from '../item-details'
+import { ProductsItem } from './products-item'
+import { ItemDetails } from '../item-details'
 import { useState } from 'react'
+import { MenuDataSection } from '@/types/menu-data'
+import { MENU } from '../../mock-api'
+import { useShoppingCartStore } from '@/store/shopping-cart'
 
 type ListProps = {
-  data: Section[]
+  data: MenuDataSection[]
 }
 
 const isValidFilterType = ({
@@ -33,7 +35,10 @@ const isValidFilterType = ({
   }
 }
 
-export const MenuList = ({ data }: ListProps) => {
+export const ProductsList = ({ data }: ListProps) => {
+  const removeTemporaryItemModifiers = useShoppingCartStore(
+    (state) => state.removeTemporaryItemModifiers
+  )
   const [dialogOpened, setDialogOpened] = useState(0)
   const ids = data.map((item) => `item-${item.id}`)
   const sections = data.map((item) => item.name.toLocaleLowerCase())
@@ -48,6 +53,11 @@ export const MenuList = ({ data }: ListProps) => {
       (section) =>
         section.name.toLocaleLowerCase() === urlFilterType.toLocaleLowerCase()
     )
+  }
+
+  const closeDialog = () => {
+    setDialogOpened(0)
+    removeTemporaryItemModifiers()
   }
 
   return (
@@ -66,17 +76,31 @@ export const MenuList = ({ data }: ListProps) => {
               {section.items.map((item) => (
                 <div key={item.id}>
                   <div onClick={() => setDialogOpened(item.id)}>
-                    <MenuItem {...item} />
+                    <ProductsItem {...item} />
                   </div>
 
                   <Dialog
                     open={dialogOpened === item.id}
                     onOpenChange={(isOpen) => {
-                      if (isOpen === false) setDialogOpened(0)
+                      if (isOpen === false) closeDialog()
                     }}
                   >
                     <DialogContent className="h-full sm:h-[calc(100vh-200px)]">
-                      <MenuItemDetails data={item} />
+                      <ItemDetails.Root>
+                        <ItemDetails.Image srcImg={item?.images?.[0]?.image} />
+                        <ItemDetails.Container
+                          name={item.name}
+                          description={item.description}
+                        >
+                          <ItemDetails.Modifiers modifiers={item.modifiers} />
+                          <ItemDetails.Actions
+                            price={item.price}
+                            id={item.id}
+                            name={item.name}
+                            afterAddProduct={() => closeDialog()}
+                          />
+                        </ItemDetails.Container>
+                      </ItemDetails.Root>
                     </DialogContent>
                   </Dialog>
                 </div>

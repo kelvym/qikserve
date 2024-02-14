@@ -10,7 +10,7 @@ export const Search = () => {
         placeholder="Search menu items"
         className="pl-12 border-[#8A94A4]"
       />
-      {/* TODO */}
+      {/* --- */}
       <Image
         src="/search-icon.svg"
         alt="Search icon"

@@ -1,15 +1,36 @@
-'use client'
-
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { Modifier } from '../menu'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { useState } from 'react'
 import { formatCurrency } from '@/lib/utils'
+import { useVenueConfigStore } from '@/store/venue-config'
+import { useShoppingCartStore } from '@/store/shopping-cart'
 
-export const ItemDetailsActions = ({ price }: { price: number }) => {
+type ItemDetailsActionsProps = {
+  price: number
+  id: number
+  name: string
+  afterAddProduct: () => void
+}
+
+export const ItemDetailsActions = ({
+  price,
+  id,
+  name,
+  afterAddProduct,
+}: ItemDetailsActionsProps) => {
+  const configVenue = useVenueConfigStore((state) => state.config)
+  const addProduct = useShoppingCartStore((state) => state.add)
+  const temporaryItemModifiers = useShoppingCartStore(
+    (state) => state.temporaryItemModifiers
+  )
   const [amount, setAmount] = useState(1)
-  const total = price * amount
+
+  const priceModifiers = temporaryItemModifiers.reduce((acc, modifier) => {
+    const key = Object.keys(modifier)[0]
+    return acc + modifier[key].price
+  }, 0)
+
+  const total = (price + priceModifiers) * amount
 
   return (
     <div className="bg-background pt-[27px]">
@@ -53,10 +74,25 @@ export const ItemDetailsActions = ({ price }: { price: number }) => {
         />
       </div>
 
-      {/* TODO real value*/}
       <div className="px-6 mt-4 pb-6">
-        <Button className="rounded-full w-full text-lg font-medium h-[48px]">
-          {/* Add to Order {formatCurrency({ total })} */}
+        <Button
+          onClick={() => {
+            addProduct({
+              id,
+              name,
+              price,
+              quantity: amount,
+              modifiers: temporaryItemModifiers,
+            })
+            afterAddProduct()
+          }}
+          className="rounded-full w-full text-lg font-medium h-[48px]"
+        >
+          {formatCurrency({
+            value: total,
+            locale: configVenue.locale,
+            currency: configVenue.currency,
+          })}
         </Button>
       </div>
       {/* ---*/}

@@ -3,3 +3,9 @@ export const getVenue = async () => {
 
   return res.json()
 }
+
+export const getMenu = async () => {
+  const res = await fetch(`/api/menu`)
+
+  return res.json()
+}

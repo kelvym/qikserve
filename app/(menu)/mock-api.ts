@@ -122,8 +122,8 @@ export const MENU = {
               ],
             },
             {
-              id: 4242,
-              name: 'XXXXXXXX',
+              id: 124,
+              name: 'Choose a size',
               minChoices: 1,
               maxChoices: 1,
               items: [

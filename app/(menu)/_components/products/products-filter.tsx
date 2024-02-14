@@ -1,16 +1,11 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import { Section } from '.'
 import Image from 'next/image'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { MenuDataSection } from '@/types/menu-data'
 
-type FilterProps = {
-  data: Section[]
-  selectedById?: number
-}
-
-export const MenuFilter = ({ data, selectedById }: FilterProps) => {
+export const ProductsFilter = ({ data }: { data: MenuDataSection[] }) => {
   const router = useRouter()
   const searchParams = useSearchParams()
   const urlFilterType = searchParams.get('filter-type')
