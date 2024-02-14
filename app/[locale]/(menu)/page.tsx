@@ -1,12 +1,13 @@
-import { Banner } from '@/app/(menu)/_components/banner'
-import { Products } from '@/app/(menu)/_components/products'
-import { Search } from '@/app/(menu)/_components/search'
-import { ShoppingCart } from '@/app/(menu)/_components/shopping-cart'
+import { Banner } from '@/app/[locale]/(menu)/_components/banner'
+import { Products } from '@/app/[locale]/(menu)/_components/products'
+import { Search } from '@/app/[locale]/(menu)/_components/search'
+import { ShoppingCart } from '@/app/[locale]/(menu)/_components/shopping-cart'
 import { Content } from './_components/content'
 import { cn } from '@/lib/utils'
 import { DefinePrimaryColor } from './_components/define-primary-color'
 import { ButtonShoppingCart } from './_components/button-shopping-cart'
 import { Suspense } from 'react'
+import { useTranslations } from 'next-intl'
 
 export default function Home() {
   return (

@@ -1,21 +1,26 @@
+import { useTranslations } from 'next-intl'
 import { NavbarItem } from './navbar-item'
 import Image from 'next/image'
 
 export const Navbar = () => {
+  const t = useTranslations('Menu')
+
+  // TODO
   const items = [
     {
-      text: 'MENU',
+      text: t('navbar.menu'),
       url: '/',
     },
     {
-      text: 'ENTRAR',
+      text: t('navbar.login'),
       url: '/login',
     },
     {
-      text: 'CONTATO',
+      text: t('navbar.contact'),
       url: '/contact',
     },
   ]
+  // ---
 
   return (
     <nav className="bg-[theme(colors.primary.DEFAULT)] w-full h-[64px] lg:h-[52px]">

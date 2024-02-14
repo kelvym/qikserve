@@ -5,8 +5,10 @@ import Image from 'next/image'
 import { Content } from './content'
 import { cn, formatCurrency } from '@/lib/utils'
 import { useVenueConfigStore } from '@/store/venue-config'
+import { useTranslations } from 'next-intl'
 
 export const ShoppingCart = () => {
+  const t = useTranslations('Menu')
   const items = useShoppingCartStore((state) => state.items)
   const decrementItem = useShoppingCartStore((state) => state.decreaseItem)
   const incrementItem = useShoppingCartStore((state) => state.increaseItem)
@@ -38,7 +40,7 @@ export const ShoppingCart = () => {
     >
       <div className="flex lg:block p-[22px] items-center bg-background">
         <h2 className="font-medium text-2xl text-[#464646] grow text-center lg:text-left">
-          Carrinho
+          {t('shopping-cart')}
         </h2>
         <Image
           src="/x-icon.svg"
@@ -102,7 +104,7 @@ export const ShoppingCart = () => {
         </div>
       ))}
       <div className="px-4 pt-[22px] pb-[19px] flex justify-between bg-background border-[#EEEEEE] border-t-[1px]">
-        <span className="font-normal text-base">Sub Total</span>
+        <span className="font-normal text-base">{t('subtotal')}</span>
         <span className="font-medium text-base">
           {formatCurrency({
             value: calcTotal,
@@ -112,7 +114,7 @@ export const ShoppingCart = () => {
         </span>
       </div>
       <div className="px-4 pt-[22px] pb-[19px] flex justify-between bg-background border-[#EEEEEE] border-t-[1px]">
-        <span className="font-normal text-2xl">Total:</span>
+        <span className="font-normal text-2xl">{t('total')}:</span>
         <span className="font-medium text-2xl">
           {formatCurrency({
             value: calcTotal,

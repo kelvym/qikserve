@@ -1,13 +1,16 @@
 import Image from 'next/image'
 import { Input } from '@/components/ui/input'
+import { useTranslations } from 'next-intl'
 
 export const Search = () => {
+  const t = useTranslations('Menu')
+
   return (
     <div className="relative">
       {/* TODO */}
       <Input
         type="text"
-        placeholder="Search menu items"
+        placeholder={t('search-placeholder')}
         className="pl-12 border-[#8A94A4]"
       />
       {/* --- */}
