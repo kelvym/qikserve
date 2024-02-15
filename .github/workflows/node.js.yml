@@ -27,6 +27,6 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build
-    - run: npm run list
+    - run: npm run lint
     - run: npm run format
     - run: npm run test
