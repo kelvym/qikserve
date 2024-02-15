@@ -22,10 +22,6 @@ export function formatCurrency({
   } catch (error) {
     return ''
   }
-  // return value.toLocaleString(locale, {
-  // style: 'currency',
-  // currency,
-  // })
 }
 
 export function hextoHSL(hex: string) {
@@ -51,7 +47,7 @@ export function hextoHSL(hex: string) {
   let l = (max + min) / 2
 
   if (max == min) {
-    h = s = 0 // achromatic
+    h = s = 0
   } else {
     let d = max - min
 
@@ -76,6 +72,4 @@ export function hextoHSL(hex: string) {
   l = Math.round(l * 100)
 
   return format({ h, s, l })
-
-  // return HSL
 }
