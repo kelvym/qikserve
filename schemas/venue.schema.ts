@@ -1,0 +1,32 @@
+import { z } from 'zod'
+
+export const VenueSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  internalName: z.string(),
+  description: z.null(),
+  liveFlag: z.number(),
+  demoFlag: z.number(),
+  address1: z.string(),
+  address2: z.string(),
+  address3: z.null(),
+  city: z.string(),
+  county: z.string(),
+  postcode: z.string(),
+  country: z.string(),
+  timezoneOffset: z.string(),
+  locale: z.string(),
+  timeZone: z.string(),
+  webSettings: z.object({
+    id: z.number(),
+    venueId: z.number(),
+    bannerImage: z.string(),
+    backgroundColour: z.string(),
+    primaryColour: z.string(),
+    primaryColourHover: z.string(),
+    navBackgroundColour: z.string(),
+  }),
+  ccy: z.string(),
+  ccySymbol: z.string(),
+  currency: z.string(),
+})
