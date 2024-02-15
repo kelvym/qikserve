@@ -12,7 +12,6 @@ import { ProductsItem } from './products-item'
 import { ItemDetails } from '../item-details'
 import { useState } from 'react'
 import { MenuDataSection } from '@/types/menu-data'
-import { MENU } from '../../mock-api'
 import { useShoppingCartStore } from '@/store/shopping-cart'
 
 type ListProps = {
