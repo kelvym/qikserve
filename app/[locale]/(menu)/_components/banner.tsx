@@ -1,6 +1,6 @@
 'use client'
 
-import { getVenue } from '@/api/get-venue'
+import { getVenue } from '@/api/requests'
 import { Loading } from '@/components/loading'
 import { VenueData } from '@/types/venue-data'
 import { useQuery } from '@tanstack/react-query'

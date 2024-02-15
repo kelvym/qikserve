@@ -9,34 +9,37 @@ describe('component DefinePrimaryColor', () => {
   })
 
   it('define variable css based in request', async () => {
-    const mockResponse: VenueData = {
-      id: 9,
-      name: 'test-name',
-      internalName: 'test-internal-name',
+    const mockResponse = {
+      id: 7602,
+      name: 'BURGERS RESTAURANT',
+      internalName: 'BURGERS RESTAURANT',
+      description: null,
       liveFlag: 1,
       demoFlag: 1,
-      address1: 'test-address1',
-      address2: 'test-address2',
-      city: 'test-city',
-      county: 'test-county',
-      postcode: 'test-postcode',
-      country: 'test-country',
-      timezoneOffset: 'test-timezone-offset',
-      locale: 'test-locale',
-      timeZone: 'test-time-zone',
+      address1: 'Rua XX-X, 1-11',
+      address2: 'XXX',
+      address3: null,
+      city: 'Bauru',
+      county: 'BR',
+      postcode: '17012-360',
+      country: 'BR',
+      timezoneOffset: '-03:00',
+      locale: 'pt-BR',
+      timeZone: 'America/Sao_Paulo',
       webSettings: {
-        id: 1,
-        venueId: 1,
-        bannerImage: 'test-banner-image',
-        backgroundColour: 'test-background-colour',
+        id: 5854,
+        venueId: 7602,
+        bannerImage:
+          'https://preodemo.gumlet.io/usr/venue/7602/web/646fbf3abf9d0.png',
+        backgroundColour: '#ffffff',
         primaryColour: 'test-primary-colour',
-        primaryColourHover: 'test-primary-colour-hover',
-        navBackgroundColour: 'test-nav-background-colour',
+        primaryColourHover: '#4f372f',
+        navBackgroundColour: '#4f372f',
       },
-      ccy: 'test-ccy',
-      ccySymbol: 'test-ccy-symbol',
-      currency: 'test-currency',
-    }
+      ccy: 'BRL',
+      ccySymbol: 'R$',
+      currency: 'R$',
+    } satisfies VenueData
 
     fetchMock.mockResponseOnce(JSON.stringify(mockResponse))
 

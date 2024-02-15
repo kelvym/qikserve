@@ -1,10 +1,7 @@
-export interface MenuData {
-  id: number
-  name: string
-  type: string
-  collapse: number
-  sections: MenuDataSection[]
-}
+import { MenuSchema } from '@/schemas/menu.schema'
+import { z } from 'zod'
+
+export type MenuData = z.infer<typeof MenuSchema>
 
 export interface MenuDataSection {
   id: number

@@ -1,25 +1,7 @@
-export interface VenueData {
-  id: number
-  name: string
-  internalName: string
-  description?: any
-  liveFlag: number
-  demoFlag: number
-  address1: string
-  address2: string
-  address3?: any
-  city: string
-  county: string
-  postcode: string
-  country: string
-  timezoneOffset: string
-  locale: string
-  timeZone: string
-  webSettings: VenueDataWebSettings
-  ccy: string
-  ccySymbol: string
-  currency: string
-}
+import { VenueSchema } from '@/schemas/venue.schema'
+import { z } from 'zod'
+
+export type VenueData = z.infer<typeof VenueSchema>
 
 export interface VenueDataWebSettings {
   id: number

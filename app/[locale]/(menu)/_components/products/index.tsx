@@ -5,7 +5,7 @@ import { ProductsList } from './products-list'
 import { MenuData } from '@/types/menu-data'
 import { Content } from '../content'
 import { useQuery } from '@tanstack/react-query'
-import { getMenu } from '@/api/get-venue'
+import { getMenu } from '@/api/requests'
 import { Skeleton } from '@/components/ui/skeleton'
 
 export const Products = () => {
