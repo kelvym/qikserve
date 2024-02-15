@@ -32,6 +32,7 @@ export const Search = () => {
   return (
     <div className="relative">
       <Input
+        id="search"
         value={inputValue}
         type="text"
         placeholder={t('search-placeholder')}
