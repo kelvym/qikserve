@@ -1,13 +1,53 @@
 import type { Metadata } from 'next'
-import { Roboto } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
 import { cn } from '@/lib/utils'
 import Providers from './providers'
 import { NextIntlClientProvider, useMessages } from 'next-intl'
 
-const roboto = Roboto({
-  weight: ['300', '400', '500', '700'],
-  subsets: ['latin'],
+const roboto = localFont({
+  src: [
+    {
+      path: '../../public/fonts/Roboto-Light.ttf',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/Roboto-LightItalic.ttf',
+      weight: '300',
+      style: 'italic',
+    },
+    {
+      path: '../../public/fonts/Roboto-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/Roboto-Italic.ttf',
+      weight: '400',
+      style: 'italic',
+    },
+    {
+      path: '../../public/fonts/Roboto-Medium.ttf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/Roboto-MediumItalic.ttf',
+      weight: '500',
+      style: 'italic',
+    },
+    {
+      path: '../../public/fonts/Roboto-Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/Roboto-BoldItalic.ttf',
+      weight: '700',
+      style: 'italic',
+    },
+  ],
 })
 
 export const metadata: Metadata = {
