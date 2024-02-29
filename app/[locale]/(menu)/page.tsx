@@ -2,19 +2,18 @@ import { Banner } from '@/app/[locale]/(menu)/_components/banner'
 import { Products } from '@/app/[locale]/(menu)/_components/products'
 import { Search } from '@/app/[locale]/(menu)/_components/search'
 import { ShoppingCart } from '@/app/[locale]/(menu)/_components/shopping-cart'
-import { Content } from './_components/content'
-import { cn } from '@/lib/utils'
 import { DefinePrimaryColor } from './_components/define-primary-color'
 import { ButtonShoppingCart } from './_components/button-shopping-cart'
-import { Suspense } from 'react'
-import { useTranslations } from 'next-intl'
 
-export default function Home() {
+export default async function Home() {
+  const result = await fetch('https://cdn-dev.preoday.com/challenge/venue/9')
+  const data = await result.json()
+
   return (
     <>
-      <DefinePrimaryColor />
+      <DefinePrimaryColor color={data.webSettings.primaryColour} />
       <div className="relative flex flex-col min-h-screen">
-        <Banner />
+        <Banner img={data.webSettings.bannerImage} />
 
         <main className="flex flex-col justify-center mt-[6px] items-center">
           <div className="w-full lg:w-[1024px] px-4 lg:px-0">
