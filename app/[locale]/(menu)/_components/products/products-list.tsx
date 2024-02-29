@@ -71,8 +71,8 @@ export const ProductsList = ({ data }: ListProps) => {
   const sections = data.map((item) => item.name.toLocaleLowerCase())
 
   const searchParams = useSearchParams()
-  const urlFilterType = searchParams.get('filter-type') || ''
-  const urlSearch = searchParams.get('search') || ''
+  const urlFilterType = searchParams?.get('filter-type') || ''
+  const urlSearch = searchParams?.get('search') || ''
 
   let dataFilteredBySection = data
 

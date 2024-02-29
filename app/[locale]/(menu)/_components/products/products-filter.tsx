@@ -8,10 +8,10 @@ import { MenuDataSection } from '@/types/menu-data'
 export const ProductsFilter = ({ data }: { data: MenuDataSection[] }) => {
   const router = useRouter()
   const searchParams = useSearchParams()
-  const urlFilterType = searchParams.get('filter-type')
+  const urlFilterType = searchParams?.get('filter-type')
 
   const changeFilterType = (filterType: string) => {
-    const params = new URLSearchParams(searchParams.toString())
+    const params = new URLSearchParams(searchParams?.toString())
 
     params.set('filter-type', filterType)
 

@@ -37,12 +37,12 @@ describe('component Navbar', () => {
     })
 
     expect(linkMenu).toBeInTheDocument()
-    expect(linkMenu).toHaveAttribute('href', navbarItems[0].url)
+    expect(linkMenu).toHaveAttribute('href', `/en`)
 
     expect(loginMenu).toBeInTheDocument()
-    expect(loginMenu).toHaveAttribute('href', navbarItems[1].url)
+    expect(loginMenu).toHaveAttribute('href', `/en${navbarItems[1].url}`)
 
     expect(contactMenu).toBeInTheDocument()
-    expect(contactMenu).toHaveAttribute('href', navbarItems[2].url)
+    expect(contactMenu).toHaveAttribute('href', `/en${navbarItems[2].url}`)
   })
 })

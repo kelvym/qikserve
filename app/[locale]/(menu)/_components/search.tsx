@@ -12,11 +12,11 @@ export const Search = () => {
   const t = useTranslations('Menu')
   const router = useRouter()
   const searchParams = useSearchParams()
-  const urlSearch = searchParams.get('search') || ''
+  const urlSearch = searchParams?.get('search') || ''
 
   const changeUrlParamSearch = (search: string) => {
     startTransition(() => {
-      const params = new URLSearchParams(searchParams.toString())
+      const params = new URLSearchParams(searchParams?.toString())
 
       params.set('search', search)
 
